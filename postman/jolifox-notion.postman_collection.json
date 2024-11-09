@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "05fe3b67-576a-4098-8d0e-183e421f92b1",
+		"name": "JoliFox Notion Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15947944",
+		"_collection_link": "https://biluga.postman.co/workspace/Pessoal~b1aecf6b-eb4d-403c-8789-9e8b02c654c9/collection/15947944-05fe3b67-576a-4098-8d0e-183e421f92b1?action=share&source=collection_link&creator=15947944"
+	},
+	"item": [
+		{
+			"name": "create page",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Content-Type header is application/json', function () {",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+							"})",
+							"",
+							"pm.test('Success field should exist', function () {",
+							"    const responseData = pm.response.json();",
+							"    pm.expect(responseData).to.have.property('success');",
+							"});",
+							"",
+							"pm.test('Response time is within acceptable range', function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+							"});",
+							"",
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.expect(pm.response.code).to.equal(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"properties\": {\r\n        \"Content\": {\r\n            \"rich_text\": [\r\n                {\r\n                    \"text\": {\r\n                        \"content\": \"Expansão de serviços em tecnologia.\"\r\n                    },\r\n                    \"annotations\": {\r\n                        \"bold\": true,\r\n                        \"italic\": false,\r\n                        \"strikethrough\": false,\r\n                        \"underline\": false,\r\n                        \"code\": false,\r\n                        \"color\": \"default\"\r\n                    }\r\n                }\r\n            ]\r\n        },\r\n        \"Language\": {\r\n            \"select\": {\r\n                \"name\": \"Portuguese\"\r\n            }\r\n        },\r\n        \"image content\": {\r\n            \"rich_text\": [\r\n                {\r\n                    \"text\": {\r\n                        \"content\": \"Banner publicitário, focado em soluções de desenvolvimento de software, design composto por uma paleta de cores em preto e rosa, com pontos e curvas fluídas ao fundo, sugerindo modernidade e inovação.\"\r\n                    },\r\n                    \"annotations\": {\r\n                        \"bold\": true,\r\n                        \"italic\": false,\r\n                        \"strikethrough\": false,\r\n                        \"underline\": false,\r\n                        \"code\": false,\r\n                        \"color\": \"default\"\r\n                    }\r\n                }\r\n            ]\r\n        },\r\n        \"Image\": {\r\n            \"files\": [\r\n                {\r\n                    \"type\": \"external\",\r\n                    \"name\": \"Imagem da Campanha\",\r\n                    \"external\": {\r\n                        \"url\": \"https://iili.io/2IAMvwb.png\"\r\n                    }\r\n                }\r\n            ]\r\n        },\r\n        \"Description\": {\r\n            \"rich_text\": [\r\n                {\r\n                    \"text\": {\r\n                        \"content\": \"A campanha tem como objetivo fortalecer a presença da Jolifox em mercados internacionais, ressaltando seus serviços de TI personalizados e seu compromisso em impulsionar o crescimento global das empresas.\"\r\n                    },\r\n                    \"annotations\": {\r\n                        \"bold\": true,\r\n                        \"italic\": false,\r\n                        \"strikethrough\": false,\r\n                        \"underline\": false,\r\n                        \"code\": false,\r\n                        \"color\": \"default\"\r\n                    }\r\n                }\r\n            ]\r\n        },\r\n        \"Campaign\": {\r\n            \"rich_text\": [\r\n                {\r\n                    \"text\": {\r\n                        \"content\": \"Impacto Global Jolifox\"\r\n                    },\r\n                    \"annotations\": {\r\n                        \"bold\": true,\r\n                        \"italic\": false,\r\n                        \"strikethrough\": false,\r\n                        \"underline\": false,\r\n                        \"code\": false,\r\n                        \"color\": \"pink\"\r\n                    }\r\n                }\r\n            ]\r\n        },\r\n        \"Where\": {\r\n            \"rich_text\": [\r\n                {\r\n                    \"text\": {\r\n                        \"content\": \"Linkedin\"\r\n                    },\r\n                     \"annotations\": {\r\n                        \"bold\": true,\r\n                        \"italic\": false,\r\n                        \"strikethrough\": false,\r\n                        \"underline\": false,\r\n                        \"code\": false,\r\n                        \"color\": \"blue\"\r\n                    }\r\n                }\r\n            ]\r\n        },\r\n        \"PlannedDate\": {\r\n            \"date\": {\r\n                \"start\": \"2024-11-18\"\r\n            }\r\n        },\r\n        \"ID\": {\r\n            \"number\": 123456\r\n        },\r\n        \"Company\": {\r\n            \"title\": [\r\n                {\r\n                    \"text\": {\r\n                        \"content\": \"JoliFox\"\r\n                    }\r\n                }\r\n            ]\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/notion/page",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"notion",
+						"page"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-page-by-id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Content-Type header is application/json', function () {",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+							"})",
+							"",
+							"pm.test('Success field should exist', function () {",
+							"    const responseData = pm.response.json();",
+							"    pm.expect(responseData).to.have.property('success');",
+							"});",
+							"",
+							"pm.test('Response time is within acceptable range', function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"properties\": {\r\n        \"Content\": {\r\n            \"rich_text\": [\r\n                {\r\n                    \"text\": {\r\n                        \"content\": \"Expansão de serviços em tecnologia.\"\r\n                    },\r\n                    \"annotations\": {\r\n                        \"bold\": true,\r\n                        \"italic\": false,\r\n                        \"strikethrough\": false,\r\n                        \"underline\": false,\r\n                        \"code\": false,\r\n                        \"color\": \"default\"\r\n                    }\r\n                }\r\n            ]\r\n        },\r\n        \"Language\": {\r\n            \"select\": {\r\n                \"name\": \"Portuguese\"\r\n            }\r\n        },\r\n        \"image content\": {\r\n            \"rich_text\": [\r\n                {\r\n                    \"text\": {\r\n                        \"content\": \"Banner publicitário, focado em soluções de desenvolvimento de software, design composto por uma paleta de cores em preto e rosa, com pontos e curvas fluídas ao fundo, sugerindo modernidade e inovação.\"\r\n                    },\r\n                    \"annotations\": {\r\n                        \"bold\": true,\r\n                        \"italic\": false,\r\n                        \"strikethrough\": false,\r\n                        \"underline\": false,\r\n                        \"code\": false,\r\n                        \"color\": \"default\"\r\n                    }\r\n                }\r\n            ]\r\n        },\r\n        \"Image\": {\r\n            \"files\": [\r\n                {\r\n                    \"type\": \"external\",\r\n                    \"name\": \"Imagem da Campanha\",\r\n                    \"external\": {\r\n                        \"url\": \"https://iili.io/2IAMvwb.png\"\r\n                    }\r\n                }\r\n            ]\r\n        },\r\n        \"Description\": {\r\n            \"rich_text\": [\r\n                {\r\n                    \"text\": {\r\n                        \"content\": \"A campanha tem como objetivo fortalecer a presença da Jolifox em mercados internacionais, ressaltando seus serviços de TI personalizados e seu compromisso em impulsionar o crescimento global das empresas.\"\r\n                    },\r\n                    \"annotations\": {\r\n                        \"bold\": true,\r\n                        \"italic\": false,\r\n                        \"strikethrough\": false,\r\n                        \"underline\": false,\r\n                        \"code\": false,\r\n                        \"color\": \"default\"\r\n                    }\r\n                }\r\n            ]\r\n        },\r\n        \"Campaign\": {\r\n            \"rich_text\": [\r\n                {\r\n                    \"text\": {\r\n                        \"content\": \"Impacto Global Jolifox\"\r\n                    },\r\n                    \"annotations\": {\r\n                        \"bold\": true,\r\n                        \"italic\": false,\r\n                        \"strikethrough\": false,\r\n                        \"underline\": false,\r\n                        \"code\": false,\r\n                        \"color\": \"pink\"\r\n                    }\r\n                }\r\n            ]\r\n        },\r\n        \"Where\": {\r\n            \"rich_text\": [\r\n                {\r\n                    \"text\": {\r\n                        \"content\": \"Linkedin\"\r\n                    },\r\n                     \"annotations\": {\r\n                        \"bold\": true,\r\n                        \"italic\": false,\r\n                        \"strikethrough\": false,\r\n                        \"underline\": false,\r\n                        \"code\": false,\r\n                        \"color\": \"blue\"\r\n                    }\r\n                }\r\n            ]\r\n        },\r\n        \"PlannedDate\": {\r\n            \"date\": {\r\n                \"start\": \"2024-11-18\"\r\n            }\r\n        },\r\n        \"ID\": {\r\n            \"number\": 123456\r\n        },\r\n        \"Company\": {\r\n            \"title\": [\r\n                {\r\n                    \"text\": {\r\n                        \"content\": \"JoliFox\"\r\n                    }\r\n                }\r\n            ]\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/notion/page/1380d303ccf9816e9d3ae9c109b62f74",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"notion",
+						"page",
+						"1380d303ccf9816e9d3ae9c109b62f74"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "page-by-id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Content-Type header is application/json', function () {",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+							"})",
+							"",
+							"pm.test('Success field should exist', function () {",
+							"    const responseData = pm.response.json();",
+							"    pm.expect(responseData).to.have.property('success');",
+							"});",
+							"",
+							"pm.test('Response time is within acceptable range', function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/api/notion/page/1380d303-ccf9-818f-b438-f2d3bf4fb605",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"notion",
+						"page",
+						"1380d303-ccf9-818f-b438-f2d3bf4fb605"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "page-by-id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Content-Type header is application/json', function () {",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+							"})",
+							"",
+							"pm.test('Success field should exist', function () {",
+							"    const responseData = pm.response.json();",
+							"    pm.expect(responseData).to.have.property('success');",
+							"});",
+							"",
+							"pm.test('Response time is within acceptable range', function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"properties\": {\r\n        \"Content\": {\r\n            \"rich_text\": [\r\n                {\r\n                    \"text\": {\r\n                        \"content\": \"Campanha de Marketing updated!\"\r\n                    }\r\n                }\r\n            ]\r\n        },\r\n        \"Language\": {\r\n            \"select\": {\r\n                \"name\": \"Portuguese\"\r\n            }\r\n        },\r\n        \"image content\": {\r\n            \"rich_text\": [\r\n                {\r\n                    \"text\": {\r\n                        \"content\": \"Imagem oficial da Campanha v2\"                        \r\n                    }\r\n                }\r\n            ]\r\n        },\r\n        \"Image\": {\r\n            \"files\": [\r\n                {\r\n                    \"type\": \"external\",\r\n                    \"name\": \"Imagem da Campanha\",\r\n                    \"external\": {\r\n                        \"url\": \"https://images.pexels.com/photos/126407/pexels-photo-126407.jpeg?cs=srgb&dl=pexels-ingewallu-126407.jpg&fm=jpg\"\r\n                    }\r\n                }\r\n            ]\r\n        },\r\n        \"Description\": {\r\n            \"rich_text\": [\r\n                {\r\n                    \"text\": {\r\n                        \"content\": \"Descrição detalhada da campanha.\"\r\n                    }\r\n                }\r\n            ]\r\n        },\r\n        \"Campaign\": {\r\n            \"rich_text\": [\r\n                {\r\n                    \"text\": {\r\n                        \"content\": \"Campanha de Outono 2024\"\r\n                    }\r\n                }\r\n            ]\r\n        },\r\n        \"Where\": {\r\n            \"rich_text\": [\r\n                {\r\n                    \"text\": {\r\n                        \"content\": \"Brasil\"\r\n                    }\r\n                }\r\n            ]\r\n        },\r\n        \"PlannedDate\": {\r\n            \"date\": {\r\n                \"start\": \"2024-11-15\"\r\n            }\r\n        },\r\n        \"ID\": {\r\n            \"number\": 123456\r\n        },\r\n        \"Company\": {\r\n            \"title\": [\r\n                {\r\n                    \"text\": {\r\n                        \"content\": \"Empresa XYZ\"\r\n                    }\r\n                }\r\n            ]\r\n        }\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/notion/page/1380d303ccf98113bf2cf7c09368b0be",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"notion",
+						"page",
+						"1380d303ccf98113bf2cf7c09368b0be"
+					]
+				},
+				"description": "This endpoint makes an HTTP DELETE request to delete a specific Notion page. The request payload includes various properties such as Content, Language, Image, Description, Campaign, Where, PlannedDate, ID, and Company. The properties are updated with new values for the Notion page to be deleted.\n\n### Response\n\nThe response returns a JSON schema with a \"success\" field indicating the success status of the operation. The \"data\" object contains various properties, but all the values are masked. The response includes information about the object, id, created time, last edited time, created by, last edited by, cover, icon, parent, archived status, and properties of the deleted Notion page.\n\n``` json\n{\n  \"success\": true,\n  \"data\": {\n    \"object\": \"\",\n    \"id\": \"\",\n    \"created_time\": \"\",\n    \"last_edited_time\": \"\",\n    \"created_by\": {\n      \"object\": \"\",\n      \"id\": \"\"\n    },\n    \"last_edited_by\": {\n      \"object\": \"\",\n      \"id\": \"\"\n    },\n    \"cover\": null,\n    \"icon\": null,\n    \"parent\": {\n      \"type\": \"\",\n      \"database_id\": \"\"\n    },\n    \"archived\": true,\n    \"in_trash\": true,\n    \"properties\": {\n      \"Content\": {\n        \"id\": \"\",\n        \"type\": \"\",\n        \"rich_text\": [\n          {\n            \"type\": \"\",\n            \"text\": {\n              \"content\": \"\",\n              \"link\": null\n            },\n            \"annotations\": {\n              \"bold\": true,\n              \"italic\": true,\n              \"strikethrough\": true,\n              \"underline\": true,\n              \"code\": true,\n              \"color\": \"\"\n            },\n            \"plain_text\": \"\",\n            \"href\": null\n          }\n        ]\n      },\n      \"Language\": {\n        \"id\": \"\",\n        \"type\": \"\",\n        \"select\": {\n          \"id\": \"\",\n          \"name\": \"\",\n          \"color\": \"\"\n        }\n      },\n      \"image content\": {\n        \"id\": \"\",\n        \"type\": \"\",\n        \"rich_text\": [\n          {\n            \"type\": \"\",\n            \"text\": {\n              \"content\": \"\",\n              \"link\": null\n            },\n            \"annotations\": {\n              \"bold\": true,\n              \"italic\": true,\n              \"strikethrough\": true,\n              \"underline\": true,\n              \"code\": true,\n              \"color\": \"\"\n            },\n            \"plain_text\": \"\",\n            \"href\": null\n          }\n        ]\n      },\n      \"Image\": {\n        \"id\": \"\",\n        \"type\": \"\",\n        \"files\": [\n          {\n            \"name\": \"\",\n            \"type\": \"\",\n            \"external\": {\n              \"url\": \"\"\n            }\n          }\n        ]\n      },\n      \"Description\": {\n        \"id\": \"\",\n        \"type\": \"\",\n        \"rich_text\": [\n          {\n            \"type\": \"\",\n            \"text\": {\n              \"content\": \"\",\n              \"link\": null\n            },\n            \"annotations\": {\n              \"bold\": true,\n              \"italic\": true,\n              \"strikethrough\": true,\n              \"underline\": true,\n              \"code\": true,\n              \"color\": \"\"\n            },\n            \"plain_text\": \"\",\n            \"href\": null\n          }\n        ]\n      },\n      \"Campaign\": {\n        \"id\": \"\",\n        \"type\": \"\",\n        \"rich_text\": [\n          {\n            \"type\": \"\",\n            \"text\": {\n              \"content\": \"\",\n              \"link\": null\n            },\n            \"annotations\": {\n              \"bold\": true,\n              \"italic\": true,\n              \"strikethrough\": true,\n              \"underline\": true,\n              \"code\": true,\n              \"color\": \"\"\n            },\n            \"plain_text\": \"\",\n            \"href\": null\n          }\n        ]\n      },\n      \"Where\": {\n        \"id\": \"\",\n        \"type\": \"\",\n        \"rich_text\": [\n          {\n            \"type\": \"\",\n            \"text\": {\n              \"content\": \"\",\n              \"link\": null\n            },\n            \"annotations\": {\n              \"bold\": true,\n              \"italic\": true,\n              \"strikethrough\": true,\n              \"underline\": true,\n              \"code\": true,\n              \"color\": \"\"\n            },\n            \"plain_text\": \"\",\n            \"href\": null\n          }\n        ]\n      },\n      \"PlannedDate\": {\n        \"id\": \"\",\n        \"type\": \"\",\n        \"date\": {\n          \"start\": \"\",\n          \"end\": null,\n          \"time_zone\": null\n        }\n      },\n      \"ID\": {\n        \"id\": \"\",\n        \"type\": \"\",\n        \"unique_id\": {\n          \"prefix\": null,\n          \"number\": 0\n        }\n      },\n      \"Company\": {\n        \"id\": \"\",\n        \"type\": \"\",\n        \"title\": [\n          {\n            \"type\": \"\",\n            \"text\": {\n              \"content\": \"\",\n              \"link\": null\n            },\n            \"annotations\": {\n              \"bold\": true,\n              \"italic\": true,\n              \"strikethrough\": true,\n              \"underline\": true,\n              \"code\": true,\n              \"color\": \"\"\n            },\n            \"plain_text\": \"\",\n            \"href\": null\n          }\n        ]\n      }\n    },\n    \"url\": \"\",\n    \"public_url\": \"\",\n    \"request_id\": \"\"\n  }\n}\n\n ```"
+			},
+			"response": []
+		}
+	]
+}
